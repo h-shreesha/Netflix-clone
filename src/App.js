@@ -1,11 +1,9 @@
 import './App.css';
 import Main from './components/Main';
 import Navbar from './components/Navbar';
+import { AuthContextProvider } from './components/context/AuthContext';
 import Home from './pages/Home';
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
     {
@@ -22,12 +20,13 @@ const router = createBrowserRouter([
 
 function App() {
     return (
-        <div className="App">
-            <Navbar />
-            <RouterProvider router={router} />
-        </div>
+        <>
+            <AuthContextProvider>
+                <Navbar />
+                <RouterProvider router={router} />
+            </AuthContextProvider>
+        </>
     );
 }
 
 export default App;
-

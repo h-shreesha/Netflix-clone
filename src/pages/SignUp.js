@@ -1,5 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext';
+
+const signup = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const {user, signup} = UserAuth()
+}
 
 const SignUp = () => {
     return (
@@ -41,7 +48,7 @@ const SignUp = () => {
                                 <span className="text-gray-600">
                                     Already subscribed to Netflix
                                 </span>{' '}
-                                <Link to='/login'>Sign In</Link>
+                                <Link to="/login">Sign In</Link>
                             </p>
                         </form>
                     </div>
